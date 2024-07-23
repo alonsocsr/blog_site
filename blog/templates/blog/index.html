@@ -1,9 +1,50 @@
 {% extends "base.html" %}
+{% load static  %}
 
 {% block title %}
     My blog
 {% endblock %}
 
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/index.css" %}">
+{% endblock %}
+
 {% block content %}
-    <h1>Welcome to my blog</h1>
+    <header id="main-navigation">
+        <h1><a href="">Stark's Blog</a></h1>
+        <nav>
+            <a href="">All Posts</a>
+        </nav>
+    </header>
+
+    <section id="welcome">
+        <header>
+            <img src="" alt="stark-blog">
+            <h2>House Stark's Blog</h2>
+        </header>
+        <p>Welcome to the official house stark's blog</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>Latest posts</h2>
+
+        <ul>
+            <li>
+               <article class="post">
+                    <a href="">
+                        <img src="" alt="The Wall">
+                        <div class="post__content">
+                            <h3>The Wall</h3>
+                            <p>The Wall is a colossal fortification which stretches for 100 leagues (300 miles or 482.8 kilometers) along the northern border of the Kingdom of the North, separating the realm from the domain of the wildlings who live beyond. The Wall is reported to be over 700 feet tall and is made of solid ice. It was supposedly constructed using both magic and mundane means some eight millennia ago in the aftermath of the Long Night to defend the realm against the White Walkers who dwell in the far north, though they are now considered myths by most. The Wall has grown considerably since it was first constructed, as the Night's Watch has spent the years augmenting it with ice blocks and upgraded defenses.</p>
+                        </div>
+                    </a>
+               </article> 
+            </li>
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What to expect</h2>
+        <p>blablablablablab</p>
+    </section>
 {% endblock %}
