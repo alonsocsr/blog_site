@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load static  %}
+
+{% block title %}
+    This post Title
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/post-detail.css" %}">
+{% endblock %}
+
+{% block content %}
+
+    <section id="summary">
+        <h2>Post Title</h2>
+        <article>
+            <img src="{% static "images/The_Wall_from_the_south.webp" %}" alt="Post-Title">
+            <address>By César</address>
+            <div>
+                Last updated on <time datetime="">July 28th</time>
+            </div>
+        </article>
+    </section>
+
+    <main>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab natus ipsam placeat enim. Vitae quod sit tempore maiores iure eius possimus maxime natus, officia cupiditate! Placeat doloremque animi quia perspiciatis?
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab natus ipsam placeat enim. Vitae quod sit tempore maiores iure eius possimus maxime natus, officia cupiditate! Placeat doloremque animi quia perspiciatis?
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab natus ipsam placeat enim. Vitae quod sit tempore maiores iure eius possimus maxime natus, officia cupiditate! Placeat doloremque animi quia perspiciatis?
+        </p>
+    </main>
+
+{% endblock %}
