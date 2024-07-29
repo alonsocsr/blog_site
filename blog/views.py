@@ -10,7 +10,8 @@ all_posts = [
         "date": date(2024, 7, 29),
         "title": "The wall",
         "excerpt": "The Wall is a colossal fortification which stretches for 100 leagues (300 miles or 482.8 kilometers) along the northern border of the Kingdom of the North, separating the realm from the domain of the wildlings who live beyond.",
-        "content": """ 
+        "content": """
+            The Wall is a colossal fortification which stretches for 100 leagues (300 miles or 482.8 kilometers) along the northern border of the Kingdom of the North, separating the realm from the domain of the wildlings who live beyond. 
             The Wall is reported to be over 700 feet tall and is made of solid ice. It was supposedly constructed using both magic and mundane means some eight millennia ago in the aftermath of the Long Night to defend the realm against the White Walkers who dwell in the far north, though they are now considered myths by most. The Wall has grown considerably since it was first constructed, as the Night's Watch has spent the years augmenting it with ice blocks and upgraded defenses.
         """
     },
@@ -71,7 +72,12 @@ def starting_page(request):
     })
 
 def posts(request):
-    return render(request, "blog/all-posts.html")
+    return render(request, "blog/all-posts.html", {
+        "all_posts": all_posts
+    })
 
 def post_detail(request, slug):
-    return render(request, "blog/post-detail.html")
+    identified_post = next(post for post in all_posts if post['slug'] == slug)
+    return render(request, "blog/post-detail.html", {
+        "post": identified_post
+    })
