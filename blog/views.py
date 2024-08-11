@@ -1,14 +1,22 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import ListView
 
 from .models import Post
 
 # Create your views here.
+class StartingPageView(ListView):
+    template_name = "blog/index.html"
+    model = Post
+    ordering = ["-date"]
+    context_object_name = "posts"
 
-def starting_page(request):
-    latest_post = Post.objects.all().order_by("-date")[:3]
-    return render(request, "blog/index.html", {
-        "posts": latest_post
-    })
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        data = queryset[:3]
+        return data
+
 
 def posts(request):
     all_posts = Post.objects.all().order_by("-date")
